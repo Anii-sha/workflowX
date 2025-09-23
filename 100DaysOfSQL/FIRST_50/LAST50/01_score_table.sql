@@ -24,3 +24,19 @@ INSERT INTO score_table values(
     ('India', 'New Zealand', 'India'),
     ('Australia', 'England', 'England')
 );
+
+select team_name,
+    count(*) as num_matches_played,
+    sum(win_flag) as num_matches_won,
+    count(*)- sum(win_flag) as num_matches_lost
+    from (
+        select team_1 as team_name,
+            case when team_1 = winner then 1 else 0 end as win_flag
+            from score_table
+        union all
+        select team_2 as team_name,     
+            case when team_2 = winner then 1 else 0 end as win_flag
+            from score_table            
+    )
+    group by team_name
+    order by num_matches_won desc;
