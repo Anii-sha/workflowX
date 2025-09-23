@@ -16,3 +16,11 @@ Team_1 varchar(20),
 Teame_2 varchar(20),
 Winner varchar(20)
 );
+INSERT INTO score_table values(
+    ('India', 'Australia', 'India'),
+    ('England', 'New Zealand', 'New Zealand'),
+    ('India', 'England', 'India'),
+    ('Australia', 'New Zealand', 'Australia'),
+    ('India', 'New Zealand', 'India'),
+    ('Australia', 'England', 'England')
+);
